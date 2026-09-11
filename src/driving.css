@@ -1,0 +1,344 @@
+.is-exploring .world-header::before {
+  content: "";
+  position: absolute;
+  inset: -28px -40px -12px;
+  z-index: -1;
+  background: #edf5eff0;
+  border-bottom: 1px solid #ffffff8c;
+  backdrop-filter: blur(8px);
+}
+.is-exploring .current-location::before {
+  content: "";
+  position: absolute;
+  inset: -7px -10px;
+  z-index: -1;
+  background: #f1f7efeb;
+  border-radius: 6px;
+}
+.navigation-hud {
+  position: absolute;
+  top: 111px;
+  right: 112px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 57px;
+  width: 274px;
+  padding: 10px 12px;
+  background: #fffdf3f2;
+  border: 1px solid #ffffffb3;
+  border-radius: 7px;
+  box-shadow: 0 4px 18px #4864490d;
+  z-index: 4;
+}
+.navigation-direction {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  color: #b18338;
+  background: #f4e7c8;
+  border-radius: 50%;
+}
+.navigation-direction svg,
+.heading-dial svg {
+  transition: none;
+}
+.navigation-target {
+  min-width: 0;
+  flex: 1;
+  padding: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.navigation-target small {
+  font-size: 10px;
+  color: #778368;
+  display: flex;
+  gap: 9px;
+}
+.navigation-target small span {
+  color: #b4853c;
+  font-variant-numeric: tabular-nums;
+}
+.navigation-target strong {
+  font-weight: 600;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.navigation-cancel {
+  width: 28px;
+  height: 28px;
+  background: transparent;
+}
+.has-arrived .navigation-direction {
+  color: #4e866c;
+  background: #e0eedc;
+}
+.choose-destination {
+  width: 100%;
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  font-size: 12px;
+  padding: 5px;
+}
+.choose-destination svg:last-child {
+  margin-left: auto;
+}
+.heading-dial {
+  position: absolute;
+  top: 110px;
+  right: 40px;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #a8baa357;
+  border-radius: 50%;
+  background: #f4f8ead9;
+  color: #57715c;
+  z-index: 4;
+}
+.heading-north {
+  position: absolute;
+  inset: 3px;
+  text-align: center;
+  font-size: 7px;
+  color: #d98b60;
+}
+.map-modes {
+  display: flex;
+  width: fit-content;
+  gap: 3px;
+  margin: -8px 0 19px;
+  padding: 3px;
+  background: #eaf0e5;
+  border-radius: 5px;
+}
+.map-modes button {
+  min-height: 33px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  padding: 7px 13px;
+  border-radius: 4px;
+}
+.map-modes button[aria-pressed="true"] {
+  background: #fffef6;
+  color: #466b52;
+  box-shadow: 0 1px 4px #41533c0f;
+}
+.map-routes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.map-road {
+  stroke: #b8c9b3;
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.map-route-active {
+  stroke: #c69444;
+  stroke-width: 1.15;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.map-player {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid #fffdf3;
+  background: #435f51;
+  color: #fffdf3;
+  pointer-events: none;
+  box-shadow: 0 2px 7px #3e645639;
+  z-index: 2;
+}
+.mini-player {
+  width: 19px;
+  height: 19px;
+  border-width: 1.5px;
+}
+.mini-stop.destination {
+  box-shadow: 0 0 0 3px #f4d28e;
+}
+.drive-button[aria-pressed="true"] {
+  background: #416952;
+  color: white;
+  box-shadow: none;
+  transform: translateY(2px);
+}
+.drive-button:disabled {
+  cursor: default;
+  opacity: 0.38;
+}
+.drive-gear {
+  width: 24px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  align-self: center;
+  border: 1px solid #8fa18350;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 3px;
+  background: #f9ffedb3;
+}
+.gear-r {
+  color: #b27942;
+  background: #fff0d6;
+}
+.world-marker {
+  z-index: 1;
+}
+.is-exploring .current-location {
+  z-index: 3;
+}
+.drive-controls,
+.nearby-button,
+.mini-map {
+  z-index: 3;
+}
+.drawer-footer {
+  flex-wrap: wrap;
+}
+@media (max-width: 1000px) {
+  .navigation-hud {
+    right: 90px;
+    width: 240px;
+  }
+  .heading-dial {
+    right: 26px;
+    width: 50px;
+    height: 50px;
+    top: 115px;
+  }
+}
+@media (max-width: 760px) {
+  .is-exploring .world-header::before {
+    inset: -22px -22px -12px;
+  }
+  .navigation-hud {
+    top: 149px;
+    left: 22px;
+    right: 22px;
+    width: auto;
+    min-height: 57px;
+    padding: 9px 13px;
+  }
+  .heading-dial {
+    width: 43px;
+    height: 43px;
+    top: 90px;
+    right: 24px;
+  }
+  .heading-dial > svg {
+    width: 19px;
+    height: 19px;
+  }
+  .heading-north {
+    font-size: 6px;
+    inset: 1px;
+  }
+  .navigation-target {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .navigation-target small {
+    flex-direction: column;
+    gap: 3px;
+    font-size: 10px;
+  }
+  .navigation-target strong {
+    font-size: 12px;
+  }
+  .navigation-direction {
+    width: 31px;
+    height: 31px;
+  }
+  .navigation-direction svg {
+    width: 21px;
+    height: 21px;
+  }
+  .navigation-cancel {
+    margin-left: auto;
+  }
+  .navigation-hud:has(.choose-destination) {
+    min-height: 40px;
+    padding: 6px 11px;
+  }
+  .choose-destination {
+    font-size: 11px;
+    padding: 3px;
+  }
+  .map-modes {
+    margin-bottom: 17px;
+  }
+  .map-modes button {
+    font-size: 10px;
+  }
+  .direction-pad {
+    grid-template-columns: 44px 44px 44px;
+    grid-template-rows: 42px 42px 42px;
+  }
+  .speed-display {
+    display: flex;
+    position: absolute;
+    left: 0;
+    bottom: -27px;
+    padding: 0;
+    align-items: center;
+    gap: 5px;
+  }
+  .speed-display strong {
+    font-size: 14px;
+    line-height: 19px;
+  }
+  .speed-display > span {
+    font-size: 7px;
+  }
+  .drive-gear {
+    width: 18px;
+    height: 19px;
+    font-size: 9px;
+  }
+  .utility-controls {
+    bottom: 162px;
+  }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .is-exploring .world-header::before {
+    inset: -22px -26px -10px;
+  }
+  .navigation-hud {
+    top: 82px;
+    right: 88px;
+    left: auto;
+    width: 235px;
+  }
+  .heading-dial {
+    top: 83px;
+    right: 24px;
+  }
+  .speed-display {
+    position: static;
+  }
+}
