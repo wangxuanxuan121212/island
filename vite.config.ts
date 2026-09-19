@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import { resolve } from "node:path";
 
 export default defineConfig({
+  base: "/island/",
   plugins: [react()],
   css: { postcss: { plugins: [] } },
   server: { port: 5186, strictPort: false },
